@@ -45,3 +45,11 @@ $ pnpm run start:prod
 
 - Interceptor 拦截器
   - 成功响应拦截器
+
+## 5. 部署到服务器(使用pm2)
+
+1. 将项目除了 `node_modules` 文件夹外的所有文件上传至服务器。
+2. `pnpm install` 安装依赖。
+3. `pnpm run build` 打包。
+4. `pm2 start dist/src/main.js --name demo` 运行项目,并命名为`demo`，可自定义。
+5. `pm2 ls` 查看项目是否运行成功。
