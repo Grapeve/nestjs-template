@@ -46,6 +46,9 @@ $ pnpm run start:prod
 - Interceptor 拦截器
   - 成功响应拦截器
 
+* Pipe 管道
+  - 自定义验证
+
 ## 5. 部署到服务器(使用pm2)
 
 1. 将项目除了 `node_modules` 文件夹外的所有文件上传至服务器。
