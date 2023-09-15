@@ -21,8 +21,11 @@ export class UserService {
     return 'This action adds a new user';
   }
 
-  findAll() {
-    return `This action returns all user`;
+  async findAll() {
+    const allUsers = await this.userRepository.findBy({
+      username: 'Chengxiao',
+    });
+    return allUsers;
   }
 
   findOne(id: number) {
