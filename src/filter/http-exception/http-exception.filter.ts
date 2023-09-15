@@ -12,8 +12,18 @@ export class HttpExceptionFilter implements ExceptionFilter {
     const response = ctx.getResponse();
     const request = ctx.getRequest();
 
-    const exceptionRes = exception.getResponse();
-    const { statusCode, error, message } = exceptionRes as any;
+    let statusCode: number, error: any, message: any;
+    if ((exception as any).code) {
+      // sql error
+      statusCode = 500;
+      error = (exception as any).code;
+      message = (exception as any).message;
+    } else {
+      const exceptionRes = exception.getResponse();
+      statusCode = (exceptionRes as any).statusCode;
+      error = (exceptionRes as any).error;
+      message = (exceptionRes as any).message;
+    }
 
     const msgLog = {
       status: statusCode,
@@ -23,6 +33,6 @@ export class HttpExceptionFilter implements ExceptionFilter {
       timestamp: new Date().toLocaleString(),
     };
 
-    response.status(400).json(msgLog);
+    response.status(statusCode).json(msgLog);
   }
 }
