@@ -48,6 +48,8 @@ $ pnpm run start:prod
 
 * Pipe 管道
   - 自定义验证
+    - 使用 @UsePipes
+    - 使用 class-validator的@Validate ( 优先级高于 @UsePipes )
 
 ## 5. 部署到服务器(使用pm2)
 
