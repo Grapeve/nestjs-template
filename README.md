@@ -24,7 +24,14 @@ $ pnpm run start:dev
 $ pnpm run start:prod
 ```
 
-## 4. 已添加
+## 4. 项目结构
+
+- src<br>
+  ├─ base 存放服务需要的一些基础内容，如拦截器、过滤器等。<br>
+  ├─ config 存放数据库等配置项。<br>
+  └─ module 按照不同业务领划分出的子目。<br>
+
+## 5. 已添加
 
 - Swagger 接口文档
   - path: host:port + /api/doc
@@ -52,7 +59,7 @@ $ pnpm run start:prod
     - 使用 class-validator 的@Validate ( 优先级高于 @UsePipes )
     * 使用 class-validator 自定义验证修饰器
 
-## 5. 部署到服务器(使用pm2)
+## 6. 部署到服务器(使用pm2)
 
 1. 将项目除了 `node_modules` 文件夹外的所有文件上传至服务器。
 2. `pnpm install` 安装依赖。

@@ -4,8 +4,8 @@ import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import * as packageConfig from '../package.json';
 import * as dotenv from 'dotenv';
 import { ValidationPipe } from '@nestjs/common';
-import { HttpExceptionFilter } from './filter/http-exception/http-exception.filter';
-import { HttpSuccessInterceptor } from './interceptor/http-success/http-success.interceptor';
+import { HttpExceptionFilter } from './base/filter/http-exception/http-exception.filter';
+import { HttpSuccessInterceptor } from './base/interceptor/http-success/http-success.interceptor';
 
 dotenv.config();
 
