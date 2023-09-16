@@ -1,7 +1,10 @@
 import { IsNotEmpty, Validate } from 'class-validator';
 import { Injectable } from '@nestjs/common';
 import { ApiProperty } from '@nestjs/swagger';
-import { CustomPasswordLength } from '../../pipe/password-length/password-length.validate';
+import {
+  CustomPasswordLength,
+  IsUserPasswordCorrect,
+} from '../../pipe/password-length/password-length.validate';
 
 @Injectable()
 export class CreateUserDto {
@@ -19,6 +22,7 @@ export class CreateUserDto {
   @ApiProperty({
     example: '',
   })
-  @Validate(CustomPasswordLength, {})
+  // @Validate(CustomPasswordLength, {})
+  @IsUserPasswordCorrect()
   password: string;
 }
