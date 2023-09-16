@@ -6,6 +6,7 @@ import * as dotenv from 'dotenv';
 import { ValidationPipe } from '@nestjs/common';
 import { HttpExceptionFilter } from './base/filter/http-exception/http-exception.filter';
 import { HttpSuccessInterceptor } from './base/interceptor/http-success/http-success.interceptor';
+import { IoAdapter } from '@nestjs/platform-socket.io';
 
 dotenv.config();
 
@@ -32,6 +33,8 @@ async function bootstrap() {
 
   // Interceptor
   app.useGlobalInterceptors(new HttpSuccessInterceptor());
+
+  app.useWebSocketAdapter(new IoAdapter(app));
 
   await app.listen(3000);
 }
